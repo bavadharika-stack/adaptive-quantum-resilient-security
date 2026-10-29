@@ -1,0 +1,10 @@
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+joblib
+ascon>=0.0.9
+kyber-py>=1.2.0
+dilithium-py>=1.4.0
+cryptography

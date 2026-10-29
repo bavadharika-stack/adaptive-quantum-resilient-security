@@ -1,0 +1,72 @@
+{
+  "security_analysis": {
+    "RSA-2048": {
+      "type": "classical asymmetric encryption/signature",
+      "hardness_assumption": "Integer Factorisation Problem (IFP)",
+      "classical_attack_bit_security": 112,
+      "quantum_attack": "Shor's algorithm - polynomial time (BROKEN by CRQC)",
+      "quantum_resistant": false
+    },
+    "ECDH-P256 / ECDSA-P256": {
+      "type": "classical key exchange / signature",
+      "hardness_assumption": "Elliptic Curve Discrete Logarithm Problem (ECDLP)",
+      "classical_attack_bit_security": 128,
+      "quantum_attack": "Shor's algorithm - polynomial time (BROKEN by CRQC)",
+      "quantum_resistant": false
+    },
+    "ML-KEM-768": {
+      "type": "post-quantum key encapsulation (FIPS 203, 2024)",
+      "hardness_assumption": "Module Learning-With-Errors (Module-LWE)",
+      "classical_attack_bit_security": 192,
+      "quantum_attack": "Best known: quantum lattice sieving - only sub-exponential speed-up, no polynomial break known",
+      "quantum_resistant": true
+    },
+    "ML-DSA-65": {
+      "type": "post-quantum digital signature (FIPS 204, 2024)",
+      "hardness_assumption": "Module-LWE / Module-SIS (Fiat-Shamir with Aborts, Dilithium construction)",
+      "classical_attack_bit_security": 192,
+      "quantum_attack": "Best known: quantum lattice sieving - only sub-exponential speed-up, no polynomial break known",
+      "quantum_resistant": true
+    },
+    "ASCON-128a": {
+      "type": "lightweight symmetric AEAD (NIST LWC standard, 2023)",
+      "hardness_assumption": "Symmetric permutation - brute force key search only",
+      "classical_attack_bit_security": 128,
+      "quantum_attack": "Grover's algorithm halves effective security to ~64 bits; mitigated in the framework by ephemeral, per-session ML-KEM-derived keys and short key lifetimes",
+      "quantum_resistant": "Conditionally (needs >=256-bit key or key rotation for long-term quantum resistance; 128-bit key is adequate for short-lived V2X session keys)"
+    }
+  },
+  "benchmark_ms_and_bytes": {
+    "ML-KEM-768": {
+      "keygen_ms": 3.0359654666805604,
+      "encapsulate_ms": 4.0385682000078305,
+      "decapsulate_ms": 5.574317333328811,
+      "public_key_bytes": 1184,
+      "ciphertext_bytes": 1088
+    },
+    "ML-DSA-65": {
+      "keygen_ms": 8.78933706665824,
+      "sign_ms": 47.15395313333678,
+      "verify_ms": 9.612579266665003,
+      "public_key_bytes": 1952,
+      "signature_bytes": 3309
+    },
+    "RSA-2048": {
+      "keygen_ms": 87.92430833333735,
+      "sign_ms": 0.4606970000016493,
+      "verify_ms": 0.037421533321927804,
+      "public_key_bytes": 256,
+      "signature_bytes": 256
+    },
+    "ECDH-P256": {
+      "keygen_ms": 0.027892200008257834,
+      "exchange_ms": 0.08326453334272325
+    },
+    "ECDSA-P256": {
+      "keygen_ms": 0.023876133316965326,
+      "sign_ms": 0.21689699998811798,
+      "verify_ms": 0.09367139999388503,
+      "signature_bytes": 71
+    }
+  }
+}

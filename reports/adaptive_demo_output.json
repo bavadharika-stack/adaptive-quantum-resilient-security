@@ -1,0 +1,45 @@
+[
+  {
+    "risk_level": "normal",
+    "policy": "ASCON-128a",
+    "ciphertext": "15ccc95b3494bd5003a1f7b7f756be3f25442d47ee7fb5baeb5ac3ba0448a5408ac5e5c35d5a5805ea4d",
+    "nonce": "bb66aa8d88c26e1a34ef439a9436f1ea",
+    "kem_ciphertext_len_bytes": 0,
+    "signature_len_bytes": 0,
+    "signature_valid": null,
+    "timings_ms": {
+      "ml_classification_ms": 18.240479999917625,
+      "ascon_encrypt_ms": 0.29636900001150934,
+      "total_ms": 18.536848999929134
+    }
+  },
+  {
+    "risk_level": "medium",
+    "policy": "ML-KEM-768 + ASCON-128a",
+    "ciphertext": "3550a3c2f6802d0592c7c3547d3937c7c54eb6ec959b76f110efa7c7cd8343260b806b8bd0a3cd53d393",
+    "nonce": "18f8f18ee0c550c05cb2646d2567cc32",
+    "kem_ciphertext_len_bytes": 1088,
+    "signature_len_bytes": 0,
+    "signature_valid": null,
+    "timings_ms": {
+      "ml_classification_ms": 17.43431500005954,
+      "mlkem_keyestablish_ms": 7.457457999976214,
+      "ascon_encrypt_ms": 0.2499260000377035,
+      "total_ms": 25.14169900007346
+    }
+  },
+  {
+    "risk_level": "normal",
+    "policy": "ASCON-128a",
+    "ciphertext": "f77e7972be8f2b7e4dd5b3870a233b772c8a4b6ef6126f719db563db2262f93c171435242f34047ad8a784",
+    "nonce": "04d6191ab0b8a37833cca3af1782480a",
+    "kem_ciphertext_len_bytes": 0,
+    "signature_len_bytes": 0,
+    "signature_valid": null,
+    "timings_ms": {
+      "ml_classification_ms": 17.166128999974717,
+      "ascon_encrypt_ms": 0.21390899996731605,
+      "total_ms": 17.380037999942033
+    }
+  }
+]
